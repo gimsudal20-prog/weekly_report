@@ -336,4 +336,7 @@ def parse_header_result(headers: List[str], result_line: str) -> Tuple[str, Dict
     parts = re.split(r"\s{2,}|\t+", result_line.strip())
     parts = [p for p in parts if p != ""]
     if len(parts) < 2:
-        parts = result_line 보여줘
+        parts = result_line.strip().split()
+if len(parts) < 2:
+    return "채널합", {k: None for k in STANDARD_FIELDS}, ["B포맷 결과 라인 토큰화 실패"]
+
